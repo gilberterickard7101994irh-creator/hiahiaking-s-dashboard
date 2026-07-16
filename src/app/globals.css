@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ===== 莫兰迪温暖治愈色系 ===== */
+:root {
+  --bg-warm: #faf7f2;
+  --sidebar-bg: #4A3F35;
+  --sidebar-hover: #5D4E42;
+  --sidebar-active: #6B5B4E;
+  --accent: #d4a574;
+  --accent-soft: #f5e6d3;
+  --text-primary: #4a4a4a;
+  --text-secondary: #8c8c8c;
+  --border-soft: #ede4d8;
+}
+
+/* 全局圆角过渡 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4c5b2 transparent;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4c5b2;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c0a98a;
+}
+
+/* 卡片微动效 */
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(180, 150, 120, 0.12);
+}
+
+/* 按钮微动效 */
+.btn-bounce {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-bounce:hover {
+  transform: scale(1.03);
+}
+.btn-bounce:active {
+  transform: scale(0.97);
+}
+
+/* 输入框呼吸感 */
+.input-warm {
+  transition: all 0.25s ease;
+}
+.input-warm:focus {
+  transform: translateY(-1px);
+}
+
+/* 淡入动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.4s ease-out;
+}
