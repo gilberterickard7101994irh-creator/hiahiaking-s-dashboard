@@ -12,6 +12,7 @@
     "@next/swc-wasm-nodejs": "^15.5.20",
     "axios": "^1.18.1",
     "cheerio": "^1.2.0",
+    "framer-motion": "^12.42.2",
     "next": "^15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
