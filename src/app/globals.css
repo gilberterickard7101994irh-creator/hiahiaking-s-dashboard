@@ -1,25 +1,68 @@
 @import "tailwindcss";
 
-/* ===== 莫兰迪温暖治愈色系 ===== */
-:root {
-  --bg-warm: #faf7f2;
-  --sidebar-bg: #4A3F35;
-  --sidebar-hover: #5D4E42;
-  --sidebar-active: #6B5B4E;
-  --accent: #d4a574;
-  --accent-soft: #f5e6d3;
-  --text-primary: #4a4a4a;
-  --text-secondary: #8c8c8c;
-  --border-soft: #ede4d8;
+/* ================================================================
+   Hand-Drawn — 手绘草图风设计系统
+   ================================================================ */
+
+/* ===== 主题扩展 ===== */
+@theme {
+  /* 色彩 */
+  --color-paper: #fdfbf7;
+  --color-pencil: #2d2d2d;
+  --color-muted: #e5e0d8;
+  --color-accentRed: #ff4d4d;
+  --color-accentBlue: #2d5da1;
+  --color-postit: #fff9c4;
+
+  --color-accent: #8B5CF6;
+  --color-secondary: #F472B6;
+  --color-tertiary: #FBBF24;
+  --color-quaternary: #34D399;
+  --color-darkBorder: #1E293B;
+  --color-warmPaper: #FFFDF5;
+
+  /* 字体 — 使用系统字体栈，避免 Google Fonts 加载阻塞 */
+  --font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-hand: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-marker: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  /* 硬阴影 */
+  --shadow-hard: 4px 4px 0px 0px #2d2d2d;
+  --shadow-hardHover: 2px 2px 0px 0px #2d2d2d;
+  --shadow-hard-lg: 8px 8px 0px 0px #E2E8F0;
+  --shadow-hard-hover: 6px 6px 0px 0px #1E293B;
+  --shadow-hard-pink: 8px 8px 0px 0px #F472B6;
+
+  /* 不规则圆角 */
+  --border-radius-wobbly: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --border-radius-wobblyMd: 15px 225px 15px 255px / 255px 15px 225px 15px;
 }
 
-/* 全局圆角过渡 */
+/* ===== 全局基础 — 纸张纹理 ===== */
+body {
+  background-color: #fdfbf7;
+  background-image: radial-gradient(#e5e0d8 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: #334155;
+  font-family: var(--font-family-body);
+}
+
+/* ===== 隐藏滚动条工具类 ===== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== 自定义滚动条（全局兜底） ===== */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #d4c5b2 transparent;
+  scrollbar-color: #cbd5e1 transparent;
 }
 
-/* 自定义滚动条 */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -27,42 +70,14 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4c5b2;
+  background: #cbd5e1;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c0a98a;
+  background: #94a3b8;
 }
 
-/* 卡片微动效 */
-.card-hover {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(180, 150, 120, 0.12);
-}
-
-/* 按钮微动效 */
-.btn-bounce {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.btn-bounce:hover {
-  transform: scale(1.03);
-}
-.btn-bounce:active {
-  transform: scale(0.97);
-}
-
-/* 输入框呼吸感 */
-.input-warm {
-  transition: all 0.25s ease;
-}
-.input-warm:focus {
-  transform: translateY(-1px);
-}
-
-/* 淡入动画 */
+/* ===== 淡入动画 ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -75,4 +90,53 @@
 }
 .animate-fade-in {
   animation: fadeInUp 0.4s ease-out;
+}
+
+/* ===== 弹性摇晃 ===== */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+}
+.hover\:animate-wiggle:hover {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+/* ===== 果冻弹跳 ===== */
+@keyframes jelly {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.05, 0.95); }
+  70% { transform: scale(0.97, 1.03); }
+}
+.animate-jelly {
+  animation: jelly 0.5s ease-out;
+}
+
+/* ===== 浮动摇摆 ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ===== 摇摆 ===== */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.animate-sway {
+  animation: sway 3s ease-in-out infinite;
+}
+
+/* ===== 弹入 ===== */
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop-in {
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }

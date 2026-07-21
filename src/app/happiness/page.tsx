@@ -406,7 +406,7 @@ export default function HappinessPage() {
               initial={{ opacity: 0, y: 10, scale: 0.5 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
-              className="bg-white rounded-2xl px-3 py-2 shadow-lg mb-2 text-center"
+              className="bg-white rounded-wobbly px-3 py-2 shadow-lg mb-2 text-center"
               style={{ border: `2px solid ${ip.color}` }}
             >
               <p className="text-xs font-bold" style={{ color: ip.color }}>
@@ -681,7 +681,7 @@ export default function HappinessPage() {
                       type="button"
                       onClick={() => setMood(opt.emoji)}
                       title={opt.label}
-                      className="text-xl w-11 h-11 rounded-2xl flex items-center justify-center"
+                      className="text-xl w-11 h-11 rounded-wobbly flex items-center justify-center"
                       style={{
                         backgroundColor: active ? "#fef3e0" : "#faf7f2",
                         border: active
@@ -727,7 +727,7 @@ export default function HappinessPage() {
                 return (
                   <motion.div
                     key={i}
-                    className="relative bg-white rounded-2xl"
+                    className="relative bg-white rounded-wobbly"
                     style={{
                       /*
                          【手绘不规则边框】
@@ -797,7 +797,7 @@ export default function HappinessPage() {
             <motion.button
               onClick={handleSave}
               disabled={animPhase === "flying"}
-              className="w-full py-3.5 rounded-2xl font-bold text-base tracking-wider"
+              className="w-full py-3.5 rounded-wobbly font-bold text-base tracking-wider"
               style={{
                 background:
                   animPhase === "done"
@@ -826,7 +826,7 @@ export default function HappinessPage() {
         <div className="lg:w-80 flex-shrink-0 flex flex-col gap-5">
           {/* 记忆箱子 */}
           <motion.div
-            className="bg-white rounded-2xl p-5 flex flex-col items-center"
+            className="bg-white rounded-wobbly p-5 flex flex-col items-center"
             style={{
               border: "2px solid #e8d5c0",
               boxShadow: "0 4px 16px rgba(180,150,120,0.1)",
@@ -855,7 +855,7 @@ export default function HappinessPage() {
 
           {/* 历史记录 */}
           <div
-            className="bg-white rounded-2xl p-5 flex-1"
+            className="bg-white rounded-wobbly p-5 flex-1"
             style={{
               border: "2px solid #e8d5c0",
               boxShadow: "0 4px 16px rgba(180,150,120,0.1)",
@@ -882,7 +882,7 @@ export default function HappinessPage() {
                     key={entry.date}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-2xl p-3.5 relative group"
+                    className="rounded-wobbly p-3.5 relative group"
                     style={{
                       backgroundColor: "#fdfaf5",
                       border: "1px solid #ede4d8",

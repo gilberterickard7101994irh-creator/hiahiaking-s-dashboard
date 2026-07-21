@@ -261,7 +261,7 @@ export default function ResearchPage() {
         </div>
         <button
           onClick={openAddForm}
-          className="btn-bounce px-5 py-2.5 rounded-2xl text-sm font-medium text-white flex items-center gap-1.5 transition-all"
+          className="btn-bounce px-5 py-2.5 rounded-wobbly text-sm font-medium text-white flex items-center gap-1.5 transition-all"
           style={{ backgroundColor: "#8b7d6b", boxShadow: "0 4px 12px rgba(100,85,65,0.15)" }}
         >
           <span className="text-lg">+</span> 添加项目
@@ -271,7 +271,7 @@ export default function ResearchPage() {
       {/* 表单弹窗 */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ backgroundColor: "rgba(0,0,0,0.25)" }}>
-          <div className="bg-white rounded-2xl shadow-xl p-7 w-full max-w-md mx-4">
+          <div className="bg-white rounded-wobbly shadow-xl p-7 w-full max-w-md mx-4">
             <h3 className="text-lg font-semibold mb-5" style={{ color: "#4a4a4a" }}>
               {editingId ? "编辑项目" : "添加科研项目"}
             </h3>
@@ -299,7 +299,7 @@ export default function ResearchPage() {
                     const s = importanceStyles[level];
                     return (
                       <button key={level} type="button" onClick={() => setFormImportance(level)}
-                        className="btn-bounce flex-1 py-2.5 rounded-2xl text-sm font-medium transition-all"
+                        className="btn-bounce flex-1 py-2.5 rounded-wobbly text-sm font-medium transition-all"
                         style={is ? { backgroundColor: s.bg, color: s.text, border: `2px solid ${s.text}` } : { backgroundColor: "#f5f2ed", color: "#b8a088", border: "2px solid transparent" }}
                       >{importanceLabels[level]}</button>
                     );
@@ -309,11 +309,11 @@ export default function ResearchPage() {
             </div>
             <div className="flex gap-2 mt-6">
               <button onClick={resetForm}
-                className="flex-1 py-2.5 rounded-2xl text-sm transition-colors"
+                className="flex-1 py-2.5 rounded-wobbly text-sm transition-colors"
                 style={{ backgroundColor: "#f5f2ed", color: "#8c8c8c" }}
               >取消</button>
               <button onClick={handleSubmit}
-                className="btn-bounce flex-1 py-2.5 rounded-2xl text-sm font-medium text-white transition-all"
+                className="btn-bounce flex-1 py-2.5 rounded-wobbly text-sm font-medium text-white transition-all"
                 style={{ backgroundColor: "#8b7d6b", boxShadow: "0 4px 12px rgba(100,85,65,0.15)" }}
               >{editingId ? "保存修改" : "添加"}</button>
             </div>
@@ -327,7 +327,7 @@ export default function ResearchPage() {
           const items = grouped[q.key];
           return (
             <div key={q.key} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, q.key)}
-              className="rounded-2xl p-4 min-h-[200px] flex flex-col transition-all"
+              className="rounded-wobbly p-4 min-h-[200px] flex flex-col transition-all"
               style={{ backgroundColor: q.bg, border: `2px solid ${q.borderColor}` }}
             >
               <div className="flex items-center gap-2 mb-4">
@@ -350,7 +350,7 @@ export default function ResearchPage() {
                   const is = importanceStyles[p.importance];
                   return (
                     <div key={p.id} draggable onDragStart={(e) => handleDragStart(e, p.id)}
-                      className="card-hover bg-white rounded-2xl p-3.5 cursor-grab active:cursor-grabbing group"
+                      className="card-hover bg-white rounded-wobbly p-3.5 cursor-grab active:cursor-grabbing group"
                       style={{ border: "1px solid #ede4d8" }}
                     >
                       <p className="text-sm font-medium mb-2.5 line-clamp-2" style={{ color: "#4a4a4a" }}>{p.name}</p>
