@@ -160,9 +160,9 @@ export async function queryDatabase(): Promise<KnowledgeCardItem[]> {
   console.log("[Notion] 正在查询数据库...");
   const data = await notionFetch(`/databases/${DATABASE_ID}/query`, {
     sorts: [{ timestamp: "created_time", direction: "descending" }],
-  });
+  }) as { results?: Array<Record<string, unknown>> };
 
-  const results = data.results as Array<Record<string, unknown>> | undefined;
+  const results = data.results;
   console.log(`[Notion] 查询成功: 共 ${results?.length ?? 0} 条记录`);
   if (!results) return [];
 
