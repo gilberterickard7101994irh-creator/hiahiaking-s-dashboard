@@ -1,4 +1,4 @@
-/* ================================================================
+﻿/* ================================================================
    Notion API 数据层 — 直接调用 HTTP API（读 + 写）
    字段映射: 标题(title) / 标签(multi_select) / 信息总结(rich_text) /
             信息价值(rich_text) / 信息来源(rich_text) / 原文链接(url)
@@ -149,9 +149,9 @@ export async function createPage(input: CreatePageInput): Promise<{ id: string }
     },
   };
 
-  const data = await notionFetch("/pages", body);
+  const data = await notionFetch("/pages", body) as { id: string };
   console.log(`[Notion] 创建成功: ${input.title} (${data.id})`);
-  return { id: data.id as string };
+  return { id: data.id };
 }
 /* ================================================================
    公开 API：查询数据库全部记录
