@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const menuItems = [
-  { href: "/bilibili", label: "老K·产品导师", icon: "🎓" },
+  { href: "/operation", label: "运营知识地图", icon: "🚀" },
   { href: "/happiness", label: "幸福三件事", icon: "😊" },
   { href: "/research", label: "科研项目优先级", icon: "🔬" },
   { href: "/knowledge", label: "知识库看板", icon: "📚" },
